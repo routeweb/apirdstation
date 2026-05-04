@@ -1,0 +1,66 @@
+.route-rd-admin .route-rd-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 16px 0 20px;
+}
+
+.route-rd-card {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-left-width: 4px;
+    padding: 14px;
+}
+
+.route-rd-card strong,
+.route-rd-card span {
+    display: block;
+}
+
+.route-rd-card span {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.route-rd-good {
+    border-left-color: #00a32a;
+}
+
+.route-rd-bad {
+    border-left-color: #d63638;
+}
+
+.route-rd-neutral {
+    border-left-color: #2271b1;
+}
+
+.route-rd-panel {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-top: 0;
+    padding: 20px;
+}
+
+.route-rd-actions,
+.route-rd-clear-logs {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.route-rd-actions form,
+.route-rd-clear-logs p.submit {
+    margin: 0;
+}
+
+.route-rd-admin pre {
+    max-width: 520px;
+    overflow: auto;
+    background: #f6f7f7;
+    padding: 10px;
+}
+
+.route-rd-mapping input {
+    width: 100%;
+}
