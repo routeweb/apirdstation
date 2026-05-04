@@ -176,6 +176,14 @@ class Route_RD_Admin
             'enable_wc_order_created',
             'enable_wc_processing',
             'enable_wc_completed',
+            'enable_wc_cancelled',
+            'enable_wc_refunded',
+            'enable_wc_failed',
+            'wc_enriched_payload',
+            'wc_include_customer_metrics',
+            'wc_include_product_details',
+            'wc_dynamic_tags',
+            'wc_prevent_duplicate_events',
             'remove_data_on_uninstall',
         );
 
@@ -308,7 +316,7 @@ class Route_RD_Admin
     {
         $groups = array(
             'conversion' => array('update_contact_before_conversion', 'enable_lgpd', 'remove_data_on_uninstall'),
-            'integrations' => array('enable_cf7', 'enable_elementor', 'enable_wc_order_created', 'enable_wc_processing', 'enable_wc_completed'),
+            'integrations' => array('enable_cf7', 'enable_elementor', 'enable_wc_order_created', 'enable_wc_processing', 'enable_wc_completed', 'enable_wc_cancelled', 'enable_wc_refunded', 'enable_wc_failed', 'wc_enriched_payload', 'wc_include_customer_metrics', 'wc_include_product_details', 'wc_dynamic_tags', 'wc_prevent_duplicate_events'),
         );
 
         return isset($groups[$tab]) && in_array($field, $groups[$tab], true);
@@ -458,7 +466,15 @@ class Route_RD_Admin
             <?php $this->checkbox_row('enable_wc_order_created', __('Enviar cliente quando pedido for criado', 'route-rd-station'), $settings['enable_wc_order_created']); ?>
             <?php $this->checkbox_row('enable_wc_processing', __('Enviar evento quando pedido mudar para processing', 'route-rd-station'), $settings['enable_wc_processing']); ?>
             <?php $this->checkbox_row('enable_wc_completed', __('Enviar evento quando pedido mudar para completed', 'route-rd-station'), $settings['enable_wc_completed']); ?>
+            <?php $this->checkbox_row('enable_wc_cancelled', __('Enviar evento quando pedido for cancelado', 'route-rd-station'), $settings['enable_wc_cancelled']); ?>
+            <?php $this->checkbox_row('enable_wc_refunded', __('Enviar evento quando pedido for reembolsado', 'route-rd-station'), $settings['enable_wc_refunded']); ?>
+            <?php $this->checkbox_row('enable_wc_failed', __('Enviar evento quando pedido falhar', 'route-rd-station'), $settings['enable_wc_failed']); ?>
             <?php $this->text_row('wc_conversion_identifier', __('Conversion Identifier', 'route-rd-station'), $settings['wc_conversion_identifier']); ?>
+            <?php $this->checkbox_row('wc_enriched_payload', __('Enviar payload enriquecido de venda', 'route-rd-station'), $settings['wc_enriched_payload']); ?>
+            <?php $this->checkbox_row('wc_include_customer_metrics', __('Enviar metricas acumuladas do cliente', 'route-rd-station'), $settings['wc_include_customer_metrics']); ?>
+            <?php $this->checkbox_row('wc_include_product_details', __('Enviar detalhes de produtos, SKUs e categorias', 'route-rd-station'), $settings['wc_include_product_details']); ?>
+            <?php $this->checkbox_row('wc_dynamic_tags', __('Enviar tags dinamicas de status, pagamento, produto e categoria', 'route-rd-station'), $settings['wc_dynamic_tags']); ?>
+            <?php $this->checkbox_row('wc_prevent_duplicate_events', __('Evitar reenvio duplicado do mesmo evento de pedido', 'route-rd-station'), $settings['wc_prevent_duplicate_events']); ?>
         </table>
         <?php
         $this->settings_form_end();

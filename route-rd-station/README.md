@@ -31,6 +31,67 @@ Parametros aceitos:
 [route_rd_form conversion_identifier="Contato Site" tags="site,contato" button_text="Enviar" redirect="/obrigado"]
 ```
 
+## WooCommerce
+
+A integracao WooCommerce envia eventos como conversao padrao para a RD Station. No painel **RD Station > Integracoes**, voce pode ativar disparos para pedido criado, pedido em processamento, pedido concluido, cancelado, reembolsado e falho.
+
+Campos personalizados recomendados para criar no RD Station:
+
+```text
+cf_order_id
+cf_order_number
+cf_order_key
+cf_order_total
+cf_order_subtotal
+cf_order_discount_total
+cf_order_shipping_total
+cf_order_tax_total
+cf_order_currency
+cf_payment_method
+cf_payment_method_id
+cf_order_status
+cf_order_event
+cf_order_created_at
+cf_order_paid_at
+cf_order_completed_at
+cf_order_admin_url
+cf_customer_id
+cf_customer_note
+cf_shipping_method
+cf_coupon_codes
+cf_item_count
+cf_product_count
+cf_products
+cf_product_ids
+cf_product_skus
+cf_product_names
+cf_product_categories
+cf_product_quantities
+cf_products_json
+cf_customer_total_orders
+cf_customer_total_spent
+cf_customer_average_order_value
+cf_customer_last_order_id
+cf_customer_last_order_date
+cf_customer_type
+```
+
+Tags dinamicas opcionais:
+
+```text
+woocommerce
+cliente
+pedido-realizado
+wc-status-processing
+wc-pagamento-{metodo}
+cliente-primeira-compra
+cliente-recorrente
+produto-{nome-do-produto}
+categoria-{nome-da-categoria}
+```
+
+Para evitar duplicidade, o plugin salva no pedido o meta `_route_rd_sent_events` quando um evento e enviado com sucesso.
+
 ## Endpoints RD Station usados
 
 - OAuth code: `POST https://api.rd.services/auth/token?token_by=code`
