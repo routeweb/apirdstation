@@ -1,0 +1,24 @@
+# Sistema operacional
+Thumbs.db
+Desktop.ini
+
+# Editores
+.vscode/
+.idea/
+
+# Ambiente
+.env
+.env.*
+!.env.example
+
+# Dependencias e builds comuns
+node_modules/
+vendor/
+dist/
+build/
+
+# Logs e cache
+*.log
+.cache/
+tmp/
+temp/
